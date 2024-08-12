@@ -117,13 +117,29 @@ function choiceMenu(selNum){
 	var hitMenuNum = randlist[rnum];
 	var hitMenuName = grandMenu[hitMenuNum]["name"];
 
-	document.getElementById('main').innerHTML = '<p class="msg-info">抽選結果</p><p class="msg-alert">抽選されたメニュー番号は以下の通りです:</p><p class="msg-info" id="num-disp"></p><p class="msg-alert" id="menu-disp" style="color: #f9d39d;"></p><br><input type="button" class="selector" id="sel12" onclick="" value="もう一度"><br><input type="button" class="selector" id="sel13" onclick="returnSelection()" value="条件変更"><br><input type="button" class="selector" id="sel14" onclick="returnTop()" value="はじめに戻る">'
+	document.getElementById('main').innerHTML = '<p class="msg-info">抽選結果</p><p class="msg-alert">抽選されたメニュー番号は以下の通りです:</p><p class="msg-info" id="num-disp" onclick="revealMenuName()"></p><p class="msg-alert" id="menu-disp" style="color: #f9d39d;"></p><br><input type="button" class="selector" id="sel12" onclick="revealMenuName()" value="メニュー名表示"><br><input type="button" class="selector" id="sel13" onclick="reChoice()" value="もう一度"><br><input type="button" class="selector" id="sel14" onclick="history()" value="直近5回の履歴"><br><input type="button" class="selector" id="sel15" onclick="returnSelection()" value="条件変更"><br><input type="button" class="selector" id="sel16" onclick="returnTop()" value="はじめに戻る">'
 	document.getElementById('num-disp').innerHTML = hitMenuNum;
 	document.getElementById('menu-disp').style.color = "#f9d39d";
 	document.getElementById('menu-disp').innerHTML = hitMenuName;
 	lst.setItem("#sizry", JSON.stringify(sizry_nowStorage));
 
 }
+function revealMenuName(){
+	// console.log("start");
+	var col = document.getElementById('menu-disp').style.color;
+	// console.log(col);
+	// console.log(col === 'rgb(249, 211, 157)');
+	if (col === 'rgb(249, 211, 157)'){
+		document.getElementById('menu-disp').style.color = "#000000";
+		document.getElementById('sel12').value = "メニュー名を非表示";
+	}else{
+		document.getElementById('menu-disp').style.color = "#f9d39d";
+		document.getElementById('sel12').value = "メニュー名を表示";
+	}
+}
 function reChoice(){
 
+}
+function history(){
+	
 }
