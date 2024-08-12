@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Saizeriya's Menu Finder</title>
+    <link rel="stylesheet" href="randomsaize.css" media="all">
+    <script src="randomsaizeMenuListAll.js" charset="UTF-8"></script>
+    <script src="randomsaize.js" charset="UTF-8"></script>
+</head>
+<body>
+    <h1 class="title">"Random" SAIZERIYA</h1>
+    <div id="main">
+        <p class="msg-info">初期設定</p>
+        <p class="msg-alert">メニュー裏面右下に印字された識別記号を選択してください</p>
+        <select name="menuNum" id="menuNum" autocomplete="on">
+            <option value="A" id="menuIdentA">2024.06 A</option> <!--全国版-->
+            <option value="B" id="menuIdentB">2024.06 B</option> <!--北海道/東京/神奈川-->
+            <option value="C" id="menuIdentC">2024.06 C</option> <!--埼玉/東京/神奈川-->
+        </select>
+        <br>
+        <input type="button" class="selector" id="sel1" onclick="selectMenu()" value="はじめる">
+    </div>
+    <div id="test" hidden>
+        <p class="msg-info">抽選結果</p>
+        <p class="msg-alert">抽選されたメニュー番号は以下の通りです:</p>
+        <p class="msg-info" id="num-disp"></p>
+        <p class="msg-alert" id="menu-disp" style="color: #f9d39d;"></p>
+        <br><input type="button" class="selector" id="sel12" onclick="" value="もう一度">
+        <br><input type="button" class="selector" id="sel13" onclick="returnSelection()" value="条件変更">
+        <br><input type="button" class="selector" id="sel14" onclick="returnTop()" value="はじめに戻る">
+    </div>
+</body>
+</html>
