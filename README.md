@@ -4,7 +4,7 @@
 
 https://kaida-jyouma.github.io/randomSaize/randomsaize.html
 
-##実装予定
+## 実装予定
 
 MenuB・MenuC
 
