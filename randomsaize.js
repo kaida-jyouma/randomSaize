@@ -98,7 +98,7 @@ function returnSelection(){
 	console.log("return-Selection");
 	document.getElementById("main").innerHTML = '<p class="msg-info">選択範囲設定</p><p class="msg-alert">出現するメニューの範囲を選択してください</p><input type="button" class="selector" id="sel2" onclick="setRange(1)" value="サラダ・前菜・スープ"><br><input type="button" class="selector" id="sel3" onclick="setRange(2)" value="サイド"><br><input type="button" class="selector" id="sel4" onclick="setRange(3)" value="メイン"><br><input type="button" class="selector" id="sel5" onclick="setRange(4)" value="デザート"><br><input type="button" class="selector" id="sel6" onclick="setRange(5)" value="全メニュー ( ｱﾙｺｰﾙは除く )"><br><input type="button" class="selector" id="sel7" onclick="setRange(6)" value="全メニュー"><br><input type="button" class="selector" id="sel8" onclick="returnTop()" value="はじめに戻る"><br>';
 }
-function choiceMenu(selNum){
+function choiceMenu(selNum){	
 	var sizry_nowStorage = JSON.parse(lst.getItem("#sizry"));
 	if (sel === 1){
 		sizry_nowStorage["saveData"]["menu"] = "A";
@@ -110,17 +110,43 @@ function choiceMenu(selNum){
 		sizry_nowStorage["saveData"]["menu"] = "A";
 	}
 	sizry_nowStorage["saveData"]["cat"] = selNum;
-	
-	
+
+	if (selNum === 1){
+		var selectedCat = "サラダ・前菜・スープ";
+	}else if (selNum === 2){
+		var selectedCat = "サイド";
+	}else if (selNum === 3){
+		var selectedCat = "メイン";
+	}else if (selNum === 4){
+		var selectedCat = "デザート";
+	}else if (selNum === 5){
+		var selectedCat = "全メニュー ( ｱﾙｺｰﾙは除く )";
+	}else{
+		var selectedCat = "全メニュー";
+	}
+
+	console.log("sel");
 	// format = Math.floor( Math.random() * (max + 1 - min) ) + min;
     var rnum = Math.floor( Math.random() * (randlist.length + 1 - 0) ) + 0;
+	console.log(randlist);
+	console.log(rnum);
 	var hitMenuNum = randlist[rnum];
+	console.log(hitMenuNum);
+	console.log(grandMenu[hitMenuNum]);
 	var hitMenuName = grandMenu[hitMenuNum]["name"];
 
-	document.getElementById('main').innerHTML = '<p class="msg-info">抽選結果</p><p class="msg-alert">抽選されたメニュー番号は以下の通りです:</p><p class="msg-info" id="num-disp" onclick="revealMenuName()"></p><p class="msg-alert" id="menu-disp" style="color: #f9d39d;"></p><br><input type="button" class="selector" id="sel12" onclick="revealMenuName()" value="メニュー名表示"><br><input type="button" class="selector" id="sel13" onclick="reChoice()" value="もう一度"><br><input type="button" class="selector" id="sel14" onclick="history()" value="直近5回の履歴"><br><input type="button" class="selector" id="sel15" onclick="returnSelection()" value="条件変更"><br><input type="button" class="selector" id="sel16" onclick="returnTop()" value="はじめに戻る">'
+	document.getElementById('main').innerHTML = '<p class="msg-info">抽選結果: <span id="range-disp"></span></p><p class="msg-alert" id="menuIdentWindow">メニュー種別: <span id="menu-ident"></span></p><p class="msg-alert">抽選されたメニュー番号は以下の通りです:</p><p class="msg-info" id="num-disp" onclick="revealMenuName()"></p><p class="msg-alert" id="menu-disp" style="color: #f9d39d;"></p><br><input type="button" class="selector" id="sel12" onclick="revealMenuName()" value="メニュー名表示"><br><input type="button" class="selector" id="sel13" onclick="reChoice(' + selNum + ')" value="もう一度"><br><input type="button" class="selector" id="sel14" onclick="history()" value="直近5回の履歴"><br><input type="button" class="selector" id="sel15" onclick="returnSelection()" value="条件変更"><br><input type="button" class="selector" id="sel16" onclick="returnTop()" value="はじめに戻る">';
+	document.getElementById('range-disp').innerHTML = selectedCat;
+	document.getElementById('menu-ident').innerHTML = menuIdentNum + " " + sizry_nowStorage["saveData"]["menu"];
 	document.getElementById('num-disp').innerHTML = hitMenuNum;
 	document.getElementById('menu-disp').style.color = "#f9d39d";
 	document.getElementById('menu-disp').innerHTML = hitMenuName;
+
+	for (i=0;i<4;i++){
+		sizry_nowStorage["latest"][5-i] = sizry_nowStorage["latest"][4-i];
+	}
+	sizry_nowStorage["latest"][1] = hitMenuNum;
+
 	lst.setItem("#sizry", JSON.stringify(sizry_nowStorage));
 
 }
@@ -137,9 +163,10 @@ function revealMenuName(){
 		document.getElementById('sel12').value = "メニュー名を表示";
 	}
 }
-function reChoice(){
-
+function reChoice(catNum){
+	setRange(catNum);
 }
 function history(){
-	
+	var hist = JSON.parse(lst.getItem('#sizry'))["latest"];
+	window.alert("過去5回の抽選履歴\n1. " + hist[1] + "\n2. " + hist[2] + "\n3. " + hist[3] + "\n4. " + hist[4] + "\n5. " + hist[5]);
 }
