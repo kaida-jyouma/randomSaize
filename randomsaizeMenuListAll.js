@@ -1,4 +1,4 @@
-var menuA = {
+var menu202406A = {
 	"0000": {
 		"name": "update / area info",
 		"price": 2024061,
@@ -530,7 +530,7 @@ var menuA = {
 
 
 
-var menuB = {
+var menu202406B = {
 	"0000": {
 		"name": "update / area info",
 		"price": 2024061,
@@ -1057,7 +1057,7 @@ var menuB = {
 
 
 
-var menuC = {
+var menu202406C = {
 	"0000": {
 		"name": "update / area info",
 		"price": 2024061,

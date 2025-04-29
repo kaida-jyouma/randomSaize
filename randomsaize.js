@@ -1,4 +1,4 @@
-var version = 1; // last update: 20240812
+var version = 2; // last update: 20250429
 var menuIdentNum = "2024.06";
 var sel = 0;
 var menuList = ["A", "B", "C"];
@@ -17,18 +17,22 @@ function selectMenu(){
 	sel = menuList.indexOf(document.getElementById("menuNum").value) + 1;
 	console.log(sel);
 
+
+	// メニューセレクターの管理はこことページのファイルをいじること
 	if (sel === 1){
-		grandMenu = menuA;
+		grandMenu = menu202504A;
 	}else if (sel === 2){
-		grandMenu = menuB;
-	}else if (sel === 3){
-		grandMenu = menuC;
+		grandMenu = menu202504B;
 	}else{
-		grandMenu = menuA;
+		grandMenu = menu202504A;
 		sel = 1;
 	}
+
+
 	document.getElementById("main").innerHTML = '<p class="msg-info">選択範囲設定</p><p class="msg-alert">出現するメニューの範囲を選択してください</p><input type="button" class="selector" id="sel2" onclick="setRange(1)" value="サラダ・前菜・スープ"><br><input type="button" class="selector" id="sel3" onclick="setRange(2)" value="サイド"><br><input type="button" class="selector" id="sel4" onclick="setRange(3)" value="メイン"><br><input type="button" class="selector" id="sel5" onclick="setRange(4)" value="デザート"><br><input type="button" class="selector" id="sel6" onclick="setRange(5)" value="全メニュー ( ｱﾙｺｰﾙは除く )"><br><input type="button" class="selector" id="sel7" onclick="setRange(6)" value="全メニュー"><br><input type="button" class="selector" id="sel8" onclick="returnTop()" value="はじめに戻る"><br>';
+
 }
+
 function setRange(num){
 	randlist = [];
 	if (num === 1){
@@ -75,13 +79,14 @@ function setRange(num){
 		}
 	}
 
+
+	// メニューアップデート時はここも変更必須
 	if (sel === 1){
-		var usingMenu = "2024.06 A";
+		var usingMenu = "2025.04 A";
 	}else if (sel === 2){
-		var usingMenu = "2024.06 B";
-	}else if (sel === 3){
-		var usingMenu = "2024.06 C";
+		var usingMenu = "2025.04 D";
 	}
+
 	
 	document.getElementById("main").innerHTML = '<p class="msg-info">条件確認</p><p class="msg-alert">以下の条件で抽選されます<br>よろしいですか？</p><p class="msg-info">' + selected + '</p><p class="msg-alert">使用メニュー: ' + usingMenu + '</p><br><input type="button" class="selector" id="sel9" onclick="choiceMenu(' + num + ')" value="サイコロを振る"><br><input type="button" class="selector" id="sel10" onclick="returnSelection()" value="戻る"><br><input type="button" class="selector" id="sel11" onclick="returnTop()" value="はじめに戻る">';
 }
