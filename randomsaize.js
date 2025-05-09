@@ -1,7 +1,7 @@
 var version = 2; // last update: 20250429
 var menuIdentNum = "2024.06";
 var sel = 0;
-var menuList = ["A", "B", "C"];
+var menuList = ["A", "D"];
 var grandMenu;
 var randlist = [];
 var lst = localStorage;
