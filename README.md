@@ -4,7 +4,7 @@
 
 https://kaida-jyouma.github.io/randomSaize/randomsaize.html
 
-## 実装予定
+## アップデート履歴
 
 2025/05/09 18:01 -> v2, 202504メニュー改定暫定対応
 
