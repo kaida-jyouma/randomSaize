@@ -1,5 +1,5 @@
 var version = 2; // last update: 20250429
-var menuIdentNum = "2024.06";
+var menuIdentNum = "2025.04"; // メニュー更新時はここと2↓も変更
 var sel = 0;
 var menuList = ["A", "D"];
 var grandMenu;
