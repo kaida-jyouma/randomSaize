@@ -6,8 +6,7 @@ https://kaida-jyouma.github.io/randomSaize/randomsaize.html
 
 ## 実装予定
 
-MenuB・MenuC -> 8/13 19:36実装
+2025/05/09 18:01 -> v2, 202504メニュー改定暫定対応
 
-予算モード
+2024/08/13 19:36 -> v1, 全メニュー対応
 
-過去の履歴 -> 8/13 12:06実装
