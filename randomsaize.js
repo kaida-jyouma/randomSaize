@@ -84,8 +84,7 @@ function setRange(num){
 	if (sel === 1){
 		var usingMenu = "2025.04 A";
 	}else if (sel === 2){
-		var usingMenu = "2025.04 A"; // 暫定
-		// var usingMenu = "2025.04 D";
+		var usingMenu = "2025.04 D";
 	}
 
 	
