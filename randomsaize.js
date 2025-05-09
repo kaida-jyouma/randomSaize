@@ -22,7 +22,7 @@ function selectMenu(){
 	if (sel === 1){
 		grandMenu = menu202504A;
 	}else if (sel === 2){
-		grandMenu = menu202504B;
+		grandMenu = menu202504D;
 	}else{
 		grandMenu = menu202504A;
 		sel = 1;
@@ -84,7 +84,8 @@ function setRange(num){
 	if (sel === 1){
 		var usingMenu = "2025.04 A";
 	}else if (sel === 2){
-		var usingMenu = "2025.04 D";
+		var usingMenu = "2025.04 A"; // 暫定
+		// var usingMenu = "2025.04 D";
 	}
 
 	
