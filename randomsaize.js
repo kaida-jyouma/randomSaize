@@ -92,7 +92,7 @@ function setRange(num){
 }
 function returnTop(){
 	sel = 0;
-	menuList = ["A", "B", "C"];
+	menuList = ["A", "D"]; // メニューアップデート時に変更必須
 	grandMenu = null;
 	randlist = [];
 	console.log("return-Top");
@@ -105,12 +105,13 @@ function returnSelection(){
 }
 function choiceMenu(selNum){	
 	var sizry_nowStorage = JSON.parse(lst.getItem("#sizry"));
+	// メニューアップデート時に変更必須
 	if (sel === 1){
 		sizry_nowStorage["saveData"]["menu"] = "A";
 	}else if (sel === 2){
-		sizry_nowStorage["saveData"]["menu"] = "B";
+		sizry_nowStorage["saveData"]["menu"] = "D";
 	}else if (sel === 3){
-		sizry_nowStorage["saveData"]["menu"] = "C";
+		sizry_nowStorage["saveData"]["menu"] = "A";
 	}else{
 		sizry_nowStorage["saveData"]["menu"] = "A";
 	}
