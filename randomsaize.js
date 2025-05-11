@@ -96,7 +96,7 @@ function returnTop(){
 	grandMenu = null;
 	randlist = [];
 	console.log("return-Top");
-	document.getElementById("main").innerHTML = '<p class="msg-info">初期設定</p><p class="msg-alert">メニュー裏面右下に印字された識別記号を選択してください</p><select name="menuNum" id="menuNum" autocomplete="on"><option value="A">2024.06 A</option> <!--全国版--> <option value="B">2024.06 B</option> <!--北海道/東京/神奈川--> <option value="C">2024.06 C</option> <!--埼玉/東京/神奈川--> </select><br><input type="button" class="selector" id="sel1" onclick="selectMenu()" value="はじめる">';
+	document.getElementById("main").innerHTML = '<p class="msg-info">初期設定</p><p class="msg-alert">メニュー裏面右下に印字された識別記号を選択してください</p><select name="menuNum" id="menuNum" autocomplete="on"><option value="A" id="menuIdentA">2025.04 A</option><option value="B" id="menuIdentB">2025.04 D</option><!-- <option value="C" id="menuIdentC">2024.06 C</option> --></select><br><input type="button" class="selector" id="sel1" onclick="selectMenu()" value="はじめる"><br><input type="button" class="selector" id="sel14" onclick="history()" value="直近5回の履歴">';
 }
 function returnSelection(){
 	randlist = [];
