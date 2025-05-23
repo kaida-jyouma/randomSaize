@@ -13,6 +13,12 @@ if (lst.getItem("#sizry") === null || lst.getItem("#sizry") === "" || lst.getIte
 	sizry_Storage["info"]["menuIdent"] = menuIdentNum;
 	lst.setItem("#sizry", JSON.stringify(sizry_Storage));
 }
+
+// onLoad Function
+function displayMenu(){
+	document.getElementById("identifySelect").innerHTML = '<select name="menuNum" id="menuNum" autocomplete="on"><option value="A" id="menuIdentA">2025.04 A</option><option value="B" id="menuIdentB">2025.04 D</option></select>';
+}
+
 function selectMenu(){
 	sel = menuList.indexOf(document.getElementById("menuNum").value) + 1;
 	console.log(sel);
