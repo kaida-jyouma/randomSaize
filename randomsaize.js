@@ -1,7 +1,14 @@
-var version = 2; // last update: 20250429
-var menuIdentNum = "2025.04"; // メニュー更新時はここと2↓も変更
-var sel = 0;
+var version = 3; // last update: 20250606
+
+// メニュー更新時の変更箇所
+
+var menuIdentNum = "2025.04"; 
 var menuList = ["A", "D"];
+var menuIndex = [menu202504A, menu202504D]; // menuListの長さと一致させること
+
+// メニュー変更時の変更箇所ここまで
+
+var sel = 0;
 var grandMenu;
 var randlist = [];
 var lst = localStorage;
@@ -16,24 +23,20 @@ if (lst.getItem("#sizry") === null || lst.getItem("#sizry") === "" || lst.getIte
 
 // onLoad Function
 function displayMenu(){
-	document.getElementById("identifySelect").innerHTML = '<select name="menuNum" id="menuNum" autocomplete="on"><option value="A" id="menuIdentA">2025.04 A</option><option value="B" id="menuIdentB">2025.04 D</option></select>';
+	// document.getElementById("identifySelect").innerHTML = '<select name="menuNum" id="menuNum" autocomplete="on"><option value="A" id="menuIdentA">2025.04 A</option><option value="B" id="menuIdentB">2025.04 D</option></select>';
+	var text = '<select name="menuNum" id="menuNum" autocomplete="on">';
+	for (i=0;i<menuList.length;i++){
+		text += '<option value="' + menuList[i] + '" id="menuIdent + ' + menuList[i] + '">' + menuIdentNum + '&#32;' + menuList[i] + '</option>';
+	}
+	document.getElementById('identifySelect').innerHTML = text + '</select>';
 }
 
 function selectMenu(){
 	sel = menuList.indexOf(document.getElementById("menuNum").value) + 1;
 	console.log(sel);
 
-
-	// メニューセレクターの管理はこことページのファイルをいじること
-	if (sel === 1){
-		grandMenu = menu202504A;
-	}else if (sel === 2){
-		grandMenu = menu202504D;
-	}else{
-		grandMenu = menu202504A;
-		sel = 1;
-	}
-
+	if (sel == 0) sel = 1;
+	grandMenu = menuIndex[sel - 1];
 
 	document.getElementById("main").innerHTML = '<p class="msg-info">選択範囲設定</p><p class="msg-alert">出現するメニューの範囲を選択してください</p><input type="button" class="selector" id="sel2" onclick="setRange(1)" value="サラダ・前菜・スープ"><br><input type="button" class="selector" id="sel3" onclick="setRange(2)" value="サイド"><br><input type="button" class="selector" id="sel4" onclick="setRange(3)" value="メイン"><br><input type="button" class="selector" id="sel5" onclick="setRange(4)" value="デザート"><br><input type="button" class="selector" id="sel6" onclick="setRange(5)" value="全メニュー ( ｱﾙｺｰﾙは除く )"><br><input type="button" class="selector" id="sel7" onclick="setRange(6)" value="全メニュー"><br><input type="button" class="selector" id="sel8" onclick="returnTop()" value="はじめに戻る"><br>';
 
@@ -55,6 +58,7 @@ function setRange(num){
 		var selected = "全メニュー";
 	}
 
+	// 出現メニュー選定, 新規カテゴリーは
 	var keyList = Object.keys(grandMenu);
 	for (i=0;i<keyList.length;i++){
 		var cat = grandMenu[keyList[i]]["category"];
@@ -62,16 +66,8 @@ function setRange(num){
 			if (num === 1 || num === 5 || num === 6){
 				randlist.push(keyList[i]);
 			}
-		}else if (cat === "bread" || cat === "side menu"){
+		}else if (cat === "bread" || cat === "side menu"){ // ライスorパン
 			if (num === 2 || num === 5 || num === 6){
-				randlist.push(keyList[i]);
-			}
-		}else if (cat === "drink bar" || cat == "kid's menu" || cat === "topping"){
-			if (num === 5 || num === 6){
-				randlist.push(keyList[i]);
-			}
-		}else if (cat === "alcohol" || cat === "alcohol (bottle)"){
-			if (num === 6){
 				randlist.push(keyList[i]);
 			}
 		}else if (cat === "pizza" || cat === "doria & gratin" || cat === "pasta" || cat === "hamburg" || cat === "chicken" || cat === "lamb"){
@@ -82,23 +78,31 @@ function setRange(num){
 			if (num === 4 || num === 5 || num === 6){
 				randlist.push(keyList[i]);
 			}
+		}else if (cat === "drink bar" || cat == "kid's menu" || cat === "topping" || cat === "takeout"){
+			if (num === 5 || num === 6){
+				randlist.push(keyList[i]);
+			}
+		}else if (cat === "alcohol" || cat === "alcohol (bottle)"){
+			if (num === 6){
+				randlist.push(keyList[i]);
+			}
 		}
 	}
 
 
-	// メニューアップデート時はここも変更必須
-	if (sel === 1){
-		var usingMenu = "2025.04 A";
-	}else if (sel === 2){
-		var usingMenu = "2025.04 D";
-	}
+	// メニューアップデート時はここも変更必須 -> 変更不要に修正済み
+	var usingMenu = menuIdentNum + "&#32;" + menuList[sel - 1];
+	// if (sel === 1){
+	// 	var usingMenu = "2025.04 A";
+	// }else if (sel === 2){
+	// 	var usingMenu = "2025.04 D";
+	// }
 
 	
 	document.getElementById("main").innerHTML = '<p class="msg-info">条件確認</p><p class="msg-alert">以下の条件で抽選されます<br>よろしいですか？</p><p class="msg-info">' + selected + '</p><p class="msg-alert">使用メニュー: ' + usingMenu + '</p><br><input type="button" class="selector" id="sel9" onclick="choiceMenu(' + num + ')" value="サイコロを振る"><br><input type="button" class="selector" id="sel10" onclick="returnSelection()" value="戻る"><br><input type="button" class="selector" id="sel11" onclick="returnTop()" value="はじめに戻る">';
 }
 function returnTop(){
 	sel = 0;
-	menuList = ["A", "D"]; // メニューアップデート時に変更必須
 	grandMenu = null;
 	randlist = [];
 	console.log("return-Top");
@@ -111,16 +115,19 @@ function returnSelection(){
 }
 function choiceMenu(selNum){	
 	var sizry_nowStorage = JSON.parse(lst.getItem("#sizry"));
-	// メニューアップデート時に変更必須
-	if (sel === 1){
-		sizry_nowStorage["saveData"]["menu"] = "A";
-	}else if (sel === 2){
-		sizry_nowStorage["saveData"]["menu"] = "D";
-	}else if (sel === 3){
-		sizry_nowStorage["saveData"]["menu"] = "A";
-	}else{
-		sizry_nowStorage["saveData"]["menu"] = "A";
-	}
+	sizry_nowStorage["saveData"]["menu"] = menuList[sel - 1];
+
+	// メニューアップデート時に変更必須 -> 変更不要に修正済み
+	// if (sel === 1){
+	// 	sizry_nowStorage["saveData"]["menu"] = "A";
+	// }else if (sel === 2){
+	// 	sizry_nowStorage["saveData"]["menu"] = "D";
+	// }else if (sel === 3){
+	// 	sizry_nowStorage["saveData"]["menu"] = "A";
+	// }else{
+	// 	sizry_nowStorage["saveData"]["menu"] = "A";
+	// }
+
 	sizry_nowStorage["saveData"]["cat"] = selNum;
 
 	if (selNum === 1){

@@ -2043,7 +2043,7 @@ var menu202502A = {
     "5305": {
         "name": "'SAIZERIYA' Dressing",
         "price": 500,
-        "category": "salad"
+        "category": "takeout"
     },
     "3111": {
         "name": "Focaccia with Garlic Butter",
@@ -2073,7 +2073,7 @@ var menu202502A = {
     "5306": {
         "name": "Extra Virgin Olive Oil",
         "price": 1200,
-        "category": "side menu"
+        "category": "takeout"
     },
     "3214": {
         "name": "Focaccia with Cinnamon Sugar & Milk Gelato",
@@ -2300,7 +2300,7 @@ var menu202504A = {
     "5305": {
         "name": "'SAIZERIYA' Dressing",
         "price": 500,
-        "category": "salad"
+        "category": "takeout"
     },
     "1307": {
         "name": "Onion Soup with Bread & Cheese",
@@ -2450,7 +2450,7 @@ var menu202504A = {
     "5306": {
         "name": "Extra Virgin Olive Oil",
         "price": 1200,
-        "category": "side menu"
+        "category": "takeout"
     },
     "2418": {
         "name": "Hamburg Steak with Spicy Chicken & Fried Shrimp",
@@ -2837,7 +2837,7 @@ var menu202504D = {
     "5305": {
         "name": "'SAIZERIYA' Dressing",
         "price": 500,
-        "category": "salad"
+        "category": "takeout"
     },
     "1307": {
         "name": "Onion Soup with Bread & Cheese",
@@ -3002,7 +3002,7 @@ var menu202504D = {
     "5306": {
         "name": "Extra Virgin Olive Oil",
         "price": 1200,
-        "category": "side menu"
+        "category": "takeout"
     },
     "2402": {
         "name": "Grilled Chicken with Vegetable Salsa",
