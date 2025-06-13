@@ -113,7 +113,7 @@ function returnSelection(){
 	console.log("return-Selection");
 	document.getElementById("main").innerHTML = '<p class="msg-info">選択範囲設定</p><p class="msg-alert">出現するメニューの範囲を選択してください</p><input type="button" class="selector" id="sel2" onclick="setRange(1)" value="サラダ・前菜・スープ"><br><input type="button" class="selector" id="sel3" onclick="setRange(2)" value="サイド"><br><input type="button" class="selector" id="sel4" onclick="setRange(3)" value="メイン"><br><input type="button" class="selector" id="sel5" onclick="setRange(4)" value="デザート"><br><input type="button" class="selector" id="sel6" onclick="setRange(5)" value="全メニュー ( ｱﾙｺｰﾙは除く )"><br><input type="button" class="selector" id="sel7" onclick="setRange(6)" value="全メニュー"><br><input type="button" class="selector" id="sel8" onclick="returnTop()" value="はじめに戻る"><br>';
 }
-function choiceMenu(selNum){	
+function choiceMenu(selNum){
 	var sizry_nowStorage = JSON.parse(lst.getItem("#sizry"));
 	sizry_nowStorage["saveData"]["menu"] = menuList[sel - 1];
 
