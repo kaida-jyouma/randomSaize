@@ -3141,6 +3141,11 @@ var menu202504D = {
 
 
 var menu202506A = {
+    "0000": {
+		"name": "update + area info",
+		"price": 20250625,
+		"category": "2025.06 A"
+	},
     "5101": {
         "name": "Drink Bar (Set Menu)",
         "price": 200,
