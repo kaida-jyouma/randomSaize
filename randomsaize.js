@@ -2,9 +2,9 @@ var version = 4; // last update: 20250627
 
 // メニュー更新時の変更箇所
 
-var menuIdentNum = "2025.04"; 
-var menuList = ["A", "D"];
-var menuIndex = [menu202504A, menu202504D]; // menuListの長さと一致させること
+var menuIdentNum = "2025.06"; 
+var menuList = ["A"];
+var menuIndex = [menu202506A]; // menuListの長さと一致させること
 
 // メニュー変更時の変更箇所ここまで
 
