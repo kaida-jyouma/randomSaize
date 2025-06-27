@@ -1,22 +1,22 @@
 @media screen {
-	html {
+	html{
 		background-color: #f9d39d;
 		text-align: center;
 	}
-	.title {
+	.title{
 		text-align: center;
 		font-weight: 200;
 		margin: 0px;
 		user-select: none;
 	}
-	#menuNum {
+	#menuNum{
 		background-color: inherit;
 		border-color: #000000;
 		text-align: center;
 		font-family: monospace;
 		font-weight: 200;
 	}
-	#menuNum:focus {
+	#menuNum:focus{
 		outline: none;
 		border-width: 2px;
 	}
@@ -41,6 +41,11 @@
 		background-color: #fff39c;
 		outline: none;
 	}
+	.msg-priceMenu{
+		margin-bottom: 5px;
+	}
+
+	
 }
 
 @media screen and (max-width: 1000px){
