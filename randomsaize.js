@@ -83,12 +83,17 @@ function clearSelectedRange(){
 function setPriceRange(num){
 	if (num === 5 && !(userSelectedRange)){
 		minVal = window.prompt("Enter minimumValue:");
-		maxVal = window.prompt("Enter maxValue: ");
-		if (isNumber(minVal) && isNumber(maxVal) && parseInt(minVal) < parseInt(maxVal)){
-			userSelectedRange = true;
-			document.getElementById('sel23').value = minVal + '-' + maxVal;
-			console.log("selectedRange:", minVal, maxVal);
-			document.getElementById('activeButton').innerHTML = '<input type="button" class="selector" id="sel24" onclick="clearSelectedRange()" value="範囲をクリア">';
+		if (isNumber(minVal)){
+			maxVal = window.prompt("Enter maxValue: ");
+			if (isNumber(maxVal) && parseInt(minVal) < parseInt(maxVal)){
+				userSelectedRange = true;
+				document.getElementById('sel23').value = minVal + '-' + maxVal;
+				console.log("selectedRange:", minVal, maxVal);
+				document.getElementById('activeButton').innerHTML = '<input type="button" class="selector" id="sel24" onclick="clearSelectedRange()" value="範囲をクリア">';
+			}else{
+				window.alert("Enter number, or something was wrong. \nPlease try again...");
+				console.log(isNumber(minVal), isNumber(maxVal), parseInt(minVal) < parseInt(maxVal));
+			}
 		}else{
 			window.alert("Enter number, or something was wrong. \nPlease try again...");
 			console.log(isNumber(minVal), isNumber(maxVal), parseInt(minVal) < parseInt(maxVal));
