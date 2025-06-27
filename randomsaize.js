@@ -92,11 +92,11 @@ function setPriceRange(num){
 				document.getElementById('activeButton').innerHTML = '<input type="button" class="selector" id="sel24" onclick="clearSelectedRange()" value="範囲をクリア">';
 			}else{
 				window.alert("Enter number, or something was wrong. \nPlease try again...");
-				console.log(isNumber(minVal), isNumber(maxVal), parseInt(minVal) < parseInt(maxVal));
+				console.log(isNumber(minVal), isNumber(maxVal), minVal, maxVal, parseInt(minVal) < parseInt(maxVal));
 			}
 		}else{
 			window.alert("Enter number, or something was wrong. \nPlease try again...");
-			console.log(isNumber(minVal), isNumber(maxVal), parseInt(minVal) < parseInt(maxVal));
+			console.log(isNumber(minVal), minVal);
 		}
 		document.getElementById('sel23').blur();
 	}else{
